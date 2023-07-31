@@ -3,10 +3,10 @@ function editNav() {
   const faBarsIcon = document.getElementById("fa-bars");
   if (x.className === "topnav") {
     x.className += " responsive";
-    faBarsIcon.style.color = "white"
+    faBarsIcon.classList.add("active");
   } else {
     x.className = "topnav";
-    faBarsIcon.style.color = "red"
+    faBarsIcon.classList.remove("active");  
   }
 }
 

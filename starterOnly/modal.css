@@ -41,14 +41,15 @@ img {
     float: right;
 }
 
-.main-navbar .fa-bars{
+.main-navbar .fa.fa-bars{
   color:red;
-
 }
 
-.main-navbar:hover .fa-bars {
-  color: white;
+.main-navbar .fa.fa-bars.active{
+  color:white;
 }
+
+
 
 
 .topnav a {
@@ -67,6 +68,10 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+}
+
+.topnav a:hover .fa.fa-bars{
+  color:white;
 }
 
 .topnav a.active {
@@ -108,7 +113,6 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 } 
 
