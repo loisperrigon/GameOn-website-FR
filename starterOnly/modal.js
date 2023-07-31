@@ -1,10 +1,23 @@
 function editNav() {
   var x = document.getElementById("myTopnav");
+  const faBarsIcon = document.getElementById("fa-bars");
   if (x.className === "topnav") {
     x.className += " responsive";
+    faBarsIcon.style.color = "white"
   } else {
     x.className = "topnav";
+    faBarsIcon.style.color = "red"
   }
+}
+
+// launch modal form
+function launchModal() {
+  modalbg.style.display = "block";
+}
+
+//close modal form
+function closeLauchModal(){
+  modalbg.style.display ="none";
 }
 
 // DOM Elements
@@ -15,16 +28,8 @@ const closeModalbg = document.querySelectorAll(".close");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+// close modal form
 closeModalbg.forEach((close) => close.addEventListener("click", closeLauchModal));
-
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
-}
-
-
-function closeLauchModal(){
-  modalbg.style.display ="none";
-}
 
 
