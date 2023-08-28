@@ -13,9 +13,10 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
-const checkboxInput = document.querySelectorAll("input[name='location']");
+const checkboxLocation = document.querySelectorAll("input[name='location']");
 const formDataVille = document.getElementById("formDataVille");
-const generalCondition = document.getElementById("checkbox1");
+const generalCondition = document.getElementById("checkboxConditionGeneral");
+const nextEvenement = document.getElementById("checkboxNextEvenement");
 const labelConditionGeneral = document.getElementById("labelCheckboxConditionGeneral");
 
 
@@ -34,15 +35,15 @@ function editNav() {
 }
 
 // launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
+function launchModal(formulaire) {
+  formulaire.style.display = "block";
   window.scrollTo({ top: 0, behavior: 'smooth' });
   noScroll.classList.add("active");
 }
 
 //close modal form
-function closeLauchModal(){
-  modalbg.style.display ="none";
+function closeLauchModal(formulaire){
+  formulaire.style.display ="none";
   noScroll.classList.remove("active");
 }
 
@@ -106,7 +107,7 @@ function testnumber(champ) {
 }
 
 
-function testCheckBoutonRadio(champ){
+function testCheckBoutonLocation(champ){
 
   let isChecked = false;
 
@@ -151,11 +152,31 @@ function testDateBirthday(champ){
   return false 
 }
 
+
+function resetFormulaire(){
+  firstName.value = "";
+  lastName.value = "";
+  email.value= "";
+  birthdate.value = "";
+  quantity.value = "";
+
+  checkboxLocation.forEach(checkbox => {
+    checkbox.checked = false;
+  }); 
+
+  checkboxConditionGeneral.value = "";
+  checkboxConditionGeneral.checked = false;
+  nextEvenement.value = "";
+  nextEvenement.checked = false;
+
+  
+
+}
 // launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); //renomer modalBtn 
+modalBtn.forEach((btn) => btn.addEventListener("click", () => launchModal(modalbg))); //renomer modalBtn 
 
 // close modal form
-closeModalbg.forEach((close) => close.addEventListener("click", closeLauchModal));
+closeModalbg.forEach((close) => close.addEventListener("click", () => closeLauchModal(modalbg)));
 
 
 submitButton.addEventListener("click", (event) => {
@@ -163,10 +184,10 @@ submitButton.addEventListener("click", (event) => {
   event.preventDefault();
   let isValid = true;
   let boolTestChampVide = true;
-  let boolTest2Cractere = true;
+  let boolTest2Caractere = true;
   let boolTestMail = true;
   let boolTestValueNumber = true;
-  let boolTestSelecBoutonRadio = true;
+  let boolTestSelecBoutonLocation = true;
   let boolTestGeneralCondition = true;
   let boolTestBirthday = true;
 
@@ -179,15 +200,16 @@ submitButton.addEventListener("click", (event) => {
 
   boolTestMail = testAdresse(email);
   boolTestValueNumber = testnumber(quantity);
-  boolTestSelecBoutonRadio = testCheckBoutonRadio(checkboxInput)
+  boolTestSelecBoutonLocation = testCheckBoutonLocation(checkboxLocation)
   boolTestGeneralCondition = testCheckGeneralCondition(generalCondition);
   boolTestBirthday = testDateBirthday(birthdate);
   
   
-  isValid = testChampVide && boolTest2Cractere && boolTestMail && boolTestValueNumber && boolTestSelecBoutonRadio && boolTestGeneralCondition && boolTestBirthday;
+  isValid = testChampVide && boolTest2Caractere && boolTestMail && boolTestValueNumber && boolTestSelecBoutonLocation && boolTestGeneralCondition && boolTestBirthday;
   // Si toutes les validations sont passées, soumettre le formulaire
   if (isValid) {
-    // Ajoutez ici le code pour soumettre le formulaire si nécessaire
+    closeLauchModal(modalbg);
+    resetFormulaire();
   }
 
 
