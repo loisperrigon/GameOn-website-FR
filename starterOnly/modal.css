@@ -199,12 +199,6 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-@media screen and (max-width: 768px) {
-  .bground{
-    top: calc(7% + 51px);
-    background-color: white;
-  }
-}
 
 
 .content {
@@ -380,6 +374,65 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
+/* Modal Congratulation */
+
+.modal-Congratulation-bground{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+  align-items: center;
+}
+
+.modal-content-Congratulation{
+  margin: 5% auto;
+  width: 100%;
+  max-width: 500px;
+  height: 70%;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-body-Congratulation{
+  padding: 15px 8%;
+  margin: 15px auto;
+}
+
+.modal-body-Congratulation p{
+  color:White;
+}
+
+.modal-body-Congratulation button{
+  color:White;
+  background-color: #FE142F;
+  font-size: 14px;
+  width: 30%;
+  height: 40px;
+  border-radius: 10px ;
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor:pointer;
+}
+
+
+
 /* custom select styles */
 .custom-select {
   position: relative;

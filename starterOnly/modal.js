@@ -2,8 +2,10 @@
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeModalbg = document.querySelectorAll(".close");
+const closeModal = document.querySelectorAll(".close");
 const noScroll = document.querySelector(".noScroll");
+
+const modalCongratulation= document.querySelector(".modal-Congratulation-bground");
 
 // DOM Element Formulaire
 
@@ -15,10 +17,13 @@ const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const checkboxLocation = document.querySelectorAll("input[name='location']");
 const formDataVille = document.getElementById("formDataVille");
-const generalCondition = document.getElementById("checkboxConditionGeneral");
-const nextEvenement = document.getElementById("checkboxNextEvenement");
+const checkboxGeneralCondition = document.getElementById("checkboxConditionGeneral");
+const checkboxNextEvenement = document.getElementById("checkboxNextEvenement");
 const labelConditionGeneral = document.getElementById("labelCheckboxConditionGeneral");
 
+// DOM Element CongratulationInscription
+
+const closeModalCongratulation = document.getElementById("buttonCloseInscription");
 
 
 
@@ -46,6 +51,7 @@ function closeLauchModal(formulaire){
   formulaire.style.display ="none";
   noScroll.classList.remove("active");
 }
+
 
 function clearErrors() {
   document.querySelectorAll(".erreur-champs").forEach(error => {
@@ -164,20 +170,23 @@ function resetFormulaire(){
     checkbox.checked = false;
   }); 
 
-  checkboxConditionGeneral.value = "";
-  checkboxConditionGeneral.checked = false;
-  nextEvenement.value = "";
-  nextEvenement.checked = false;
-
-  
-
+  checkboxGeneralCondition.value = "";
+  checkboxGeneralCondition.checked = false;
+  checkboxNextEvenement.value = "";
+  checkboxNextEvenement.checked = false;
 }
+
+
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", () => launchModal(modalbg))); //renomer modalBtn 
 
 // close modal form
-closeModalbg.forEach((close) => close.addEventListener("click", () => closeLauchModal(modalbg)));
+closeModal[0].addEventListener("click", () => {closeLauchModal(modalbg);}); // closeModal[0] correspond au formulaire
 
+
+closeModalCongratulation.addEventListener("click", () => {closeLauchModal(modalCongratulation);});
+closeModal[1].addEventListener("click", () => {closeLauchModal(modalCongratulation);});  // closeModal[1] correspond a la fenetre de confirmation inscription
 
 submitButton.addEventListener("click", (event) => {
 
@@ -201,7 +210,7 @@ submitButton.addEventListener("click", (event) => {
   boolTestMail = testAdresse(email);
   boolTestValueNumber = testnumber(quantity);
   boolTestSelecBoutonLocation = testCheckBoutonLocation(checkboxLocation)
-  boolTestGeneralCondition = testCheckGeneralCondition(generalCondition);
+  boolTestGeneralCondition = testCheckGeneralCondition(checkboxGeneralCondition);
   boolTestBirthday = testDateBirthday(birthdate);
   
   
@@ -210,6 +219,9 @@ submitButton.addEventListener("click", (event) => {
   if (isValid) {
     closeLauchModal(modalbg);
     resetFormulaire();
+    modalCongratulation.style.display = "flex";
+    
+
   }
 
 
