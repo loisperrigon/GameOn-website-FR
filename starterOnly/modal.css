@@ -17,7 +17,6 @@ body {
   background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
-  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -28,6 +27,7 @@ body {
 .noScroll.active{
   overflow: hidden;
 }
+
 
 p {
   margin-bottom: 0;
@@ -40,13 +40,27 @@ img {
 
 .topnav {
   overflow: hidden;
-  margin: 3.5%;
+  width: 100%;
+  position: fixed;
+  
+  z-index: 3;
+  background-color: white;
+  
 }
 .header-logo {
     float: left;
+    background-color: white;
+    padding: 25px 100% 3.5% 3.5%;
+    border-radius: 10px;
 }
 .main-navbar {
+    position: fixed;
+    right:0px;
+    z-index: 4;
+    padding: 25px;
+    border-radius: 10px;
     float: right;
+    background-color: white;
 }
 
 .main-navbar .fa.fa-bars{
@@ -57,8 +71,9 @@ img {
   color:white;
 }
 
-
-
+.topnav.responsive{
+  background-color: transparent;
+}
 
 .topnav a {
   float: left;
@@ -66,7 +81,6 @@ img {
   color: #000000;
   text-align: center;
   padding: 12px 12px;
-  margin: 5px;
   text-decoration: none;
   font-size: 20px;
   font-family: Roboto, sans-serif;
@@ -90,6 +104,8 @@ img {
 
 .topnav .icon {
   display: none;
+  height: 45px;
+  
 }
 
 
@@ -100,7 +116,7 @@ main {
   padding-top: 0.5vw;
   padding-left: 2vw;
   padding-right: 2vw;
-  margin: 1px 20px 15px;
+  margin: 150px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
 
@@ -164,7 +180,7 @@ main {
 
 
 .content {
-  margin: 5% auto;
+  margin: 150px auto;
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -486,28 +502,35 @@ footer {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
+  
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
   }
 
-  .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
-    right: 0;
-    top: 0px; /*Pour etre en desous du logo */
+    top: 25px ;
+    right: 25px; /*Pour etre en desous du logo */
   }
   .topnav.responsive a {
     float: none;
     display: block;
-    text-align: left;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  main{
+    margin-top:80px;
   }
 
 
+
 .bground {
-  top:80px;
   background-color: white;
 
 }
@@ -526,17 +549,7 @@ footer {
 }
 }
 
-@media screen and (max-width: 528px){
-  .topnav.responsive .icon {
-    top: 51px;
-  }
 
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-} 
 
 
 @keyframes modalopen {

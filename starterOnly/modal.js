@@ -221,11 +221,9 @@ submitButton.addEventListener("click", (event) => {
     resetFormulaire();
     modalCongratulation.style.display = "flex";
     noScroll.classList.add("active");
-    
-    
+  
 
   }
-
 
 });
 
