@@ -168,7 +168,7 @@ main {
 .bground {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   left: 0;
   top: 0;
   height: 100%;
@@ -333,7 +333,7 @@ input {
 .modal-Congratulation-bground{
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   left: 0;
   top: 0;
   height: 100%;
@@ -532,20 +532,21 @@ footer {
 
 .bground {
   background-color: white;
+  z-index: 1;
+  margin-bottom: 80px;
 
 }
-.content{
-  margin-bottom: 20%;
-}
+
 
 .modal-Congratulation-bground{
   top:80px;
   background-color: white;
+  z-index: 1;
   
 }
 
 .modal-content-Congratulation{
-  margin-bottom: 20%;
+  margin-bottom: 80px;
 }
 }
 
