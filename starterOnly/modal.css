@@ -92,44 +92,6 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0px; /*Pour etre en desous du logo */
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-@media screen and (max-width: 528px){
-  .topnav.responsive .icon {
-    top: 51px;
-  }
-}
-
-
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-} 
 
 main {
   font-size: 130%;
@@ -388,10 +350,11 @@ input[data-error]::after {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
   align-items: center;
+  justify-content: center;
 }
 
 .modal-content-Congratulation{
-  margin: 5% auto;
+  margin: 0px 10%;
   width: 100%;
   max-width: 500px;
   height: 70%;
@@ -402,7 +365,6 @@ input[data-error]::after {
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -415,6 +377,7 @@ input[data-error]::after {
 
 .modal-body-Congratulation p{
   color:White;
+  text-align: center;
 }
 
 .modal-body-Congratulation button{
@@ -615,6 +578,60 @@ footer {
     text-align: center;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0px; /*Pour etre en desous du logo */
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+
+.bground {
+  top:80px;
+  background-color: white;
+
+}
+.content{
+  margin-bottom: 20%;
+}
+
+.modal-Congratulation-bground{
+  top:80px;
+  background-color: white;
+  
+}
+
+.modal-content-Congratulation{
+  margin-bottom: 20%;
+  margin-top: -120px;
+}
+}
+
+@media screen and (max-width: 528px){
+  .topnav.responsive .icon {
+    top: 51px;
+  }
+
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+} 
+
 
 @keyframes modalopen {
   from {

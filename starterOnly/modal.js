@@ -140,7 +140,7 @@ function testCheckGeneralCondition(radio){
     return true;
   }
 
-  const errorChamp = createErrorMessage("Veuillez accepter les condtion general");
+  const errorChamp = createErrorMessage("Veuillez accepter les conditions generals");
   labelConditionGeneral.insertAdjacentElement("afterend", errorChamp);
   return false
 }
@@ -220,6 +220,8 @@ submitButton.addEventListener("click", (event) => {
     closeLauchModal(modalbg);
     resetFormulaire();
     modalCongratulation.style.display = "flex";
+    noScroll.classList.add("active");
+    
     
 
   }
