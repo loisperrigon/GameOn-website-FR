@@ -155,7 +155,6 @@ function testDateBirthday(champ){
   }
 
 
-  // Vérifier si la conversion en objet Date est valide
   if (!isNaN(value) && age >= 18) {
     return true;
   }
@@ -228,7 +227,6 @@ submitButton.addEventListener("click", (event) => {
     resetFormulaire();
     modalCongratulation.style.display = "flex";
     noScroll.classList.add("active");
-  
 
   }
 
