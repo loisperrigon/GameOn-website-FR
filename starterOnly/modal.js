@@ -78,7 +78,7 @@ function testChampVide(champ) {
 function testNombreCaractere(champ) {
   const minLength = 2;
   if (champ.value.trim().length < minLength) {
-    const errorChamp = createErrorMessage("Le champ doit avoir au moins 2 caractères");
+    const errorChamp = createErrorMessage("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
     champ.insertAdjacentElement("afterend", errorChamp);
     return false;
   }
@@ -140,7 +140,7 @@ function testCheckGeneralCondition(radio){
     return true;
   }
 
-  const errorChamp = createErrorMessage("Veuillez accepter les conditions generals");
+  const errorChamp = createErrorMessage("Vous devez vérifier que vous acceptez les termes et conditions.");
   labelConditionGeneral.insertAdjacentElement("afterend", errorChamp);
   return false
 }
@@ -148,12 +148,19 @@ function testCheckGeneralCondition(radio){
 function testDateBirthday(champ){
   const value = new Date(champ.value);
 
+  const dateDuJour = new Date();
+  var age = dateDuJour.getFullYear() - value.getFullYear();
+  if (dateDuJour.getMonth() < value.getMonth() || (dateDuJour.getMonth() === value.getMonth() && dateDuJour.getDate() < value.getDate())) {
+    age--;
+  }
+
+
   // Vérifier si la conversion en objet Date est valide
-  if (!isNaN(value)) {
+  if (!isNaN(value) && age >= 18) {
     return true;
   }
 
-  const errorChamp = createErrorMessage("Ajouter votre date de naissance");
+  const errorChamp = createErrorMessage("Vous devez entrer votre date de naissance et avoir minimum 18 ans.");
   birthdate.insertAdjacentElement("afterend", errorChamp);
   return false 
 }
