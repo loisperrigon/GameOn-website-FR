@@ -198,6 +198,7 @@ submitButton.addEventListener("click", (event) => {
 
   event.preventDefault();
   let isValid = true;
+  
   let boolTestChampVide = true;
   let boolTest2Caractere = true;
   let boolTestMail = true;
@@ -220,13 +221,13 @@ submitButton.addEventListener("click", (event) => {
   boolTestBirthday = testDateBirthday(birthdate);
   
   
-  isValid = testChampVide && boolTest2Caractere && boolTestMail && boolTestValueNumber && boolTestSelecBoutonLocation && boolTestGeneralCondition && boolTestBirthday;
+  isValid = boolTest2Caractere && boolTestMail && boolTestValueNumber && boolTestSelecBoutonLocation && boolTestGeneralCondition && boolTestBirthday;
   // Si toutes les validations sont passées, soumettre le formulaire
   if (isValid) {
     closeLauchModal(modalbg);
     resetFormulaire();
     modalCongratulation.style.display = "flex";
-    noScroll.classList.add("active");
+    noScroll.classList.add("active"); //Reactive le scrool 
 
   }
 
